@@ -4,6 +4,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <cstdlib>
 
 #include "MazeBase.h"
 
@@ -29,15 +30,20 @@ private:
 
     vector<pair<int, int> > mStack;
 
-    /** Data Management Functions **/
+    /** Data Management Methods **/
 
+    int mGetX(void);
+    int mGetY(void);
+
+    vector<Direction> mUsableDirections(void);
     bool mCursorUsable(void);
-    bool mCanWalk(Direction dir);
+    Direction mGetRandomUsableDirection(void);
 
-    /** Worker Functions **/
+    /** Worker Methods **/
 
     void mWalk(void);
     void mStep(Direction dir);
+    void mBacktrack(void);
 };
 
 #endif // RECURSIVEBACKTRACKER_H_INCLUDED

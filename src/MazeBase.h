@@ -8,13 +8,16 @@ class MazeBase
 {
 public:
 
-    MazeBase(Cell fill=empty);
+    MazeBase(void);
+
+    void Clear(void);
+    bool IsEmpty(void);
 
     virtual void abstract() = 0;
 
 protected:
 
-    Cell mGrid[SIZE][SIZE];
+    Cell mGrid[WIDTH][HEIGHT];
 };
 
 #endif // MAZEBASE_H_INCLUDED
