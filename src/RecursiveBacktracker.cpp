@@ -74,7 +74,7 @@ int RecursiveBacktracker::mGetY(void)
     return mStack.back().second;
 }
 
-vector<Direction> RecursiveBacktracker::mUsableDirections(void)
+vector<dirs::Direction> RecursiveBacktracker::mUsableDirections(void)
 {
     /**
      * Return a vector containing all of the usable directions.
@@ -82,20 +82,20 @@ vector<Direction> RecursiveBacktracker::mUsableDirections(void)
      * A direction is usable if it leads to an empty adjacent cell.
     **/
 
-    vector<Direction> dirs;
+    vector<dirs::Direction> dirs;
 
     // up
     if (mGetY() > 0 && mGrid[mGetX()][mGetY()-1] != empty)
-        dirs.push_back(up);
+        dirs.push_back(dirs::up);
     // right
     if (mGetX() < WIDTH && mGrid[mGetX()+1][mGetY()] != empty)
-        dirs.push_back(right);
+        dirs.push_back(dirs::right);
     // down
     if (mGetY() < HEIGHT && mGrid[mGetX()][mGetY()+1] != empty)
-        dirs.push_back(down);
+        dirs.push_back(dirs::down);
     // left
     if (mGetX() > 0 && mGrid[mGetX()-1][mGetY()] != empty)
-        dirs.push_back(left);
+        dirs.push_back(dirs::left);
 
     return dirs;
 }
@@ -107,13 +107,13 @@ bool RecursiveBacktracker::mCursorUsable(void)
 
     return mUsableDirections().size() > 0;
 }
-Direction RecursiveBacktracker::mGetRandomUsableDirection(void)
+dirs::Direction RecursiveBacktracker::mGetRandomUsableDirection(void)
 {
     /**
      * From the usable directions, return one at random.
     **/
 
-    vector<Direction> dirs = mUsableDirections();
+    vector<dirs::Direction> dirs = mUsableDirections();
     return dirs[rand() % dirs.size()];
 }
 
@@ -133,7 +133,7 @@ void RecursiveBacktracker::mWalk(void)
     while (mCursorUsable())
         mStep(mGetRandomUsableDirection());
 }
-void RecursiveBacktracker::mStep(Direction dir)
+void RecursiveBacktracker::mStep(dirs::Direction dir)
 {
     /**
      * Advance the cursor in a particular direction.
@@ -153,19 +153,19 @@ void RecursiveBacktracker::mStep(Direction dir)
     **/
     switch (dir)
     {
-        case up:
+        case dirs::up:
             mStack.push_back(make_pair(mGetX(), mGetY() - 1));
             mGrid[mGetX()][mGetY()] = vertical;
             break;
-        case right:
+        case dirs::right:
             mStack.push_back(make_pair(mGetX() + 1, mGetY()));
             mGrid[mGetX()][mGetY()] = horizontal;
             break;
-        case down:
+        case dirs::down:
             mStack.push_back(make_pair(mGetX(), mGetY() + 1));
             mGrid[mGetX()][mGetY()] = vertical;
             break;
-        case left:
+        case dirs::left:
             mStack.push_back(make_pair(mGetX() - 1, mGetY()));
             mGrid[mGetX()][mGetY()] = horizontal;
             break;

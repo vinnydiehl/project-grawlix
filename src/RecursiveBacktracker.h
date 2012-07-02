@@ -35,14 +35,14 @@ private:
     int mGetX(void);
     int mGetY(void);
 
-    vector<Direction> mUsableDirections(void);
+    vector<dirs::Direction> mUsableDirections(void);
     bool mCursorUsable(void);
-    Direction mGetRandomUsableDirection(void);
+    dirs::Direction mGetRandomUsableDirection(void);
 
     /** Worker Methods **/
 
     void mWalk(void);
-    void mStep(Direction dir);
+    void mStep(dirs::Direction dir);
     void mBacktrack(void);
 };
 

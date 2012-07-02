@@ -1,13 +1,18 @@
 #ifndef TYPES_H_INCLUDED
 #define TYPES_H_INCLUDED
 
-enum Direction
+namespace dirs
 {
-    up,
-    right,
-    down,
-    left
-};
+
+    enum Direction
+    {
+        up,
+        right,
+        down,
+        left
+    };
+
+}
 
 enum Cell
 {
