@@ -13,8 +13,6 @@ public:
     void Clear(void);
     bool IsEmpty(void);
 
-    virtual void abstract() = 0;
-
 protected:
 
     Cell mGrid[WIDTH][HEIGHT];

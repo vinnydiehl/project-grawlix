@@ -1,8 +1,7 @@
 # Project Grawlix
 
 Watch my progress on the implementation of these algorithms. Right now you
-can test the compilation status of this code by running the following in
-the ```src``` directory:
+can run this code by running the following in the ```src``` directory:
 
-    g++ -Wall MazeBase.cpp RecursiveBacktracker.cpp main.cpp -o /dev/null
+    mkdir -p bin && g++ -Wall MazeBase.cpp RecursiveBacktracker.cpp testapp.cpp -o bin/testapp && bin/testapp
 

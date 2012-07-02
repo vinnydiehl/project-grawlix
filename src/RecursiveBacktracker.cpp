@@ -33,6 +33,7 @@ string RecursiveBacktracker::GetAscii(void)
     string output;
 
     for (int y = 0; y < HEIGHT; ++y)
+    {
         for (int x = 0; x < WIDTH; ++x)
             output += mGrid[x][y] == vertical
                       ? " |"
@@ -43,8 +44,11 @@ string RecursiveBacktracker::GetAscii(void)
                         // all of the cells are blank), use "XX" so we know
                         // what's up.
                         : "XX";
+        output += '\n';
+    }
 
-    return output;
+    // Remove the extra newline at the end while returning it.
+    return output.substr(0, output.length() - 1);
 }
 void RecursiveBacktracker::Draw(void)
 {
