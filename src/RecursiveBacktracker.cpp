@@ -14,12 +14,22 @@ void RecursiveBacktracker::Generate(void)
     // Initialize the stack with a random coordinate.
     mStack.push_back(make_pair((rand() % WIDTH) + 1, (rand() % HEIGHT) + 1));
 
+    //mWalk();
+
+    cout << "Starting point: (" << mGetX() << ", " << mGetY() << ')' << endl;
+
+    cout << "IsEmpty(): " << (IsEmpty() ? "true" : "false") << endl;
+
+    cout << endl;
+
+#if 0
     do
     {
         mWalk();
         mBacktrack();
     }
     while (!mStack.empty());
+#endif
 }
 
 string RecursiveBacktracker::GetAscii(void)
